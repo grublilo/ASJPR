@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 .. Welcome to Leroy-Docs's documentation!
 .. ======================================
-Advanced Junos Service Provider Routing On-Demand
+Service Provider Routing On-Demand
 =================================================
 
 .. toctree::

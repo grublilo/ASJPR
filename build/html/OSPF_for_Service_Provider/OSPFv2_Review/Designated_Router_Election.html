@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overview of OSPFv2 &mdash; Leroy-Docs 0.1 documentation</title>
+  <title>Designated Router Election &mdash; Leroy-Docs 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
 
@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Advanced OSPF for Service Provider" href="../../Advanced_OSPF_for_Service_Provider/index.html" />
-    <link rel="prev" title="Module Introdution" href="Introdution.html" /> 
+    <link rel="prev" title="Overview of OSPFv2" href="Overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,7 +46,8 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">OSPF for Service Provider</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Introdution.html">Module Introdution</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Overview of OSPFv2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Overview.html">Overview of OSPFv2</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Designated Router Election</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Advanced_OSPF_for_Service_Provider/index.html">Advanced OSPF for Service Provider</a></li>
@@ -68,9 +69,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">OSPF for Service Provider</a></li>
-      <li class="breadcrumb-item active">Overview of OSPFv2</li>
+      <li class="breadcrumb-item active">Designated Router Election</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/OSPF_for_Service_Provider/OSPFv2_Review/Overview.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/OSPF_for_Service_Provider/OSPFv2_Review/Designated_Router_Election.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -78,25 +79,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="overview-of-ospfv2">
-<h1>Overview of OSPFv2<a class="headerlink" href="#overview-of-ospfv2" title="Link to this heading">¶</a></h1>
-<p>OSPF is an interior gateway protocol(IGP) based on the concept of a link-state databse(LSDB).As such,each OSPF-speaking
-router in the network attempts to form an adjacency with each neighboring OSPF router.When these adjacencies are in pla
-ce, each router genenrates and floods link-state advetisements(LSAs) into the network i a reliable manner.</p>
-<p>The LSAs are placed into the LSDB on each router where the shortest-path-first(SPF) algorithm is run to find the best path
-to each end node in the network.</p>
-<p>OSPF routers send out Hello packets to form and maintain adjacencies with their neighbors.</p>
-<p>OSPF uses IP protocol number 89 and the all OSPF routers multicast address of 224.0.0.5 to flood LSAs.OSPF routers forward
-all LSAs through all OSPF-configured interfaces except the one on which an LSA was received.</p>
-<p>the LSAs are the installed into the OSPF databse ,whcih forms the topology map of the network.Finally,the SFP aigorithm is
-calculated to detemine the shortest path to each destination subnet.</p>
+  <section id="designated-router-election">
+<h1>Designated Router Election<a class="headerlink" href="#designated-router-election" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Router on a boardcast segment elect a designated router</p></li>
+</ul>
+<p>On a broadcast segment,OSPF Routers elect a single node to represent the segment to the network. This node is called
+the designated router. if forms an OSPF adjacency with all routers on the segment and floods a network LSA into the appropriate
+area. The criteria for electing the designated router is the highest configured priority on the segment,which is segment to 128
+by default. The second criteria for electing a designated router is the highest router ID on the segment.</p>
+<p>The election of a designated router on a broadcast segment is a nondeterministic event.Thus ,the router with the best criteria
+might not always be the designated router for the segment. An Operational designated router manitains its status on the segment
+until it stops operating.</p>
+<p>The first OSPF router on a link determines itself as the designated router,if it does not detect a Hello from another router within
+the 40-second election period.</p>
+<p>Currently, a lot of Ethernet segments are used as point-to-point(P2P) ,full-duplex links.This eliminates the need for a designated
+router election.</p>
+<p>Use the interface-type p2p command on both sides of the link to change the default interface type. Using this option can save up to
+40 seconds of wait time to get the OSPF adjacency to a full state.</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Introdution.html" class="btn btn-neutral float-left" title="Module Introdution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Overview.html" class="btn btn-neutral float-left" title="Overview of OSPFv2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../../Advanced_OSPF_for_Service_Provider/index.html" class="btn btn-neutral float-right" title="Advanced OSPF for Service Provider" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
