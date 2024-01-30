@@ -1,0 +1,23 @@
+
+Module Introdution
+===================
+Welcome to the OSPFv2 Review module. By the end of this moudule,you should be able to describe OSPFv2 in detail.
+
+Overview of OSPFv2
+===================
+
+OSPF is an interior gateway protocol(IGP) based on the concept of a link-state databse(LSDB).As such,each OSPF-speaking
+router in the network attempts to form an adjacency with each neighboring OSPF router.When these adjacencies are in pla
+ce, each router genenrates and floods link-state advetisements(LSAs) into the network i a reliable manner.
+
+The LSAs are placed into the LSDB on each router where the shortest-path-first(SPF) algorithm is run to find the best path 
+to each end node in the network.
+
+OSPF routers send out Hello packets to form and maintain adjacencies with their neighbors.
+
+OSPF uses IP protocol number 89 and the all OSPF routers multicast address of 224.0.0.5 to flood LSAs.OSPF routers forward
+all LSAs through all OSPF-configured interfaces except the one on which an LSA was received.
+
+the LSAs are the installed into the OSPF databse ,whcih forms the topology map of the network.Finally,the SFP aigorithm is 
+calculated to detemine the shortest path to each destination subnet.
+
