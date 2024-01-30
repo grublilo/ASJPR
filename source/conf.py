@@ -6,6 +6,11 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import sphinx_rtd_theme
+from recommonmark.parser import CommonMarkParser
+source_parsers = {'.md': CommonMarkParser,   }
+source_suffix = ['.rst', '.md']
+
+
 project = 'Leroy-Docs'
 copyright = '2024, Leroy Li'
 author = 'Leroy Li'
