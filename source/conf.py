@@ -6,9 +6,15 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import sphinx_rtd_theme
-from recommonmark.parser import CommonMarkParser
-source_parsers = {'.md': CommonMarkParser,   }
-source_suffix = ['.rst', '.md']
+
+
+
+
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.txt': 'markdown',
+    '.md': 'markdown',
+}
 
 
 project = 'Leroy-Docs'
@@ -19,7 +25,7 @@ release = '0.1'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = ['myst_parser']
 
 templates_path = ['_templates']
 exclude_patterns = []

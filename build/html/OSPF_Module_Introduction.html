@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>other &mdash; Leroy-Docs 0.1 documentation</title>
+  <title>Overview of OSPFv2 &mdash; Leroy-Docs 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -18,7 +18,9 @@
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="other" href="other.html" />
+    <link rel="prev" title="OSPFv2 Review" href="OSPF_for_Service_Provider.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,10 +42,13 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="OSPF_for_Service_Provider/index.html">OSPF for Service Provider</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Advanced_OSPF_for_Service_Provider/index.html">Advanced OSPF for Service Provider</a></li>
+              <p class="caption" role="heading"><span class="caption-text">Advanced Junos Service Provider Routing On-Demand</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="OSPF_for_Service_Provider.html">OSPFv2 Review</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Overview of OSPFv2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="other.html">other</a></li>
 </ul>
 
         </div>
@@ -60,9 +65,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">other</li>
+          <li class="breadcrumb-item"><a href="OSPF_for_Service_Provider.html">OSPFv2 Review</a></li>
+      <li class="breadcrumb-item active">Overview of OSPFv2</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/other.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/OSPF_Module_Introduction.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -70,15 +76,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="other">
-<h1>other<a class="headerlink" href="#other" title="Link to this heading">¶</a></h1>
-<p>Welcome to the OSPFv2 Review module. By the end of this moudule,you should be able to describe OSPFv2 in detail.</p>
+  <section id="overview-of-ospfv2">
+<h1>Overview of OSPFv2<a class="headerlink" href="#overview-of-ospfv2" title="Link to this heading">¶</a></h1>
+<p>OSPF is an interior gateway protocol(IGP) based on the concept of a link-state databse(LSDB).As such,each OSPF-speaking
+router in the network attempts to form an adjacency with each neighboring OSPF router.When these adjacencies are in pla
+ce, each router genenrates and floods link-state advetisements(LSAs) into the network i a reliable manner.</p>
+<p>The LSAs are placed into the LSDB on each router where the shortest-path-first(SPF) algorithm is run to find the best path
+to each end node in the network.</p>
+<p>OSPF routers send out Hello packets to form and maintain adjacencies with their neighbors.</p>
+<p>OSPF uses IP protocol number 89 and the all OSPF routers multicast address of 224.0.0.5 to flood LSAs.OSPF routers forward
+all LSAs through all OSPF-configured interfaces except the one on which an LSA was received.</p>
+<p>the LSAs are the installed into the OSPF databse ,whcih forms the topology map of the network.Finally,the SFP aigorithm is
+calculated to detemine the shortest path to each destination subnet.</p>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="OSPF_for_Service_Provider.html" class="btn btn-neutral float-left" title="OSPFv2 Review" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="other.html" class="btn btn-neutral float-right" title="other" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

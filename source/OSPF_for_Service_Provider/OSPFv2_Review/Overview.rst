@@ -1,8 +1,3 @@
-
-Module Introdution
-===================
-Welcome to the OSPFv2 Review module. By the end of this moudule,you should be able to describe OSPFv2 in detail.
-
 Overview of OSPFv2
 ===================
 

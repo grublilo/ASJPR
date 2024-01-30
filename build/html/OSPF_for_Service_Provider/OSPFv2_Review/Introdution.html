@@ -19,7 +19,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Advanced OSPF for Service Provider" href="../../Advanced_OSPF_for_Service_Provider/index.html" />
+    <link rel="next" title="Overview of OSPFv2" href="Overview.html" />
     <link rel="prev" title="OSPF for Service Provider" href="../index.html" /> 
 </head>
 
@@ -46,7 +46,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">OSPF for Service Provider</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Module Introdution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#overview-of-ospfv2">Overview of OSPFv2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Overview.html">Overview of OSPFv2</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Advanced_OSPF_for_Service_Provider/index.html">Advanced OSPF for Service Provider</a></li>
@@ -70,7 +70,7 @@
           <li class="breadcrumb-item"><a href="../index.html">OSPF for Service Provider</a></li>
       <li class="breadcrumb-item active">Module Introdution</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/OSPF_for_Service_Provider/OSPFv2_Review/contents.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/OSPF_for_Service_Provider/OSPFv2_Review/Introdution.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -82,26 +82,13 @@
 <h1>Module Introdution<a class="headerlink" href="#module-introdution" title="Link to this heading">¶</a></h1>
 <p>Welcome to the OSPFv2 Review module. By the end of this moudule,you should be able to describe OSPFv2 in detail.</p>
 </section>
-<section id="overview-of-ospfv2">
-<h1>Overview of OSPFv2<a class="headerlink" href="#overview-of-ospfv2" title="Link to this heading">¶</a></h1>
-<p>OSPF is an interior gateway protocol(IGP) based on the concept of a link-state databse(LSDB).As such,each OSPF-speaking
-router in the network attempts to form an adjacency with each neighboring OSPF router.When these adjacencies are in pla
-ce, each router genenrates and floods link-state advetisements(LSAs) into the network i a reliable manner.</p>
-<p>The LSAs are placed into the LSDB on each router where the shortest-path-first(SPF) algorithm is run to find the best path
-to each end node in the network.</p>
-<p>OSPF routers send out Hello packets to form and maintain adjacencies with their neighbors.</p>
-<p>OSPF uses IP protocol number 89 and the all OSPF routers multicast address of 224.0.0.5 to flood LSAs.OSPF routers forward
-all LSAs through all OSPF-configured interfaces except the one on which an LSA was received.</p>
-<p>the LSAs are the installed into the OSPF databse ,whcih forms the topology map of the network.Finally,the SFP aigorithm is
-calculated to detemine the shortest path to each destination subnet.</p>
-</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../index.html" class="btn btn-neutral float-left" title="OSPF for Service Provider" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../Advanced_OSPF_for_Service_Provider/index.html" class="btn btn-neutral float-right" title="Advanced OSPF for Service Provider" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Overview.html" class="btn btn-neutral float-right" title="Overview of OSPFv2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
