@@ -5,7 +5,7 @@ Designated Router Election
 *  The elelction of a designated router on a broadcast segment is a nondeterministic event
 *  A lot of Ethernet segments are used as point-to-point(P2P), full-duplex links
 
-![](media/010301.JPG)
+![](../../media/010301.JPG)
 
 On a broadcast segment,OSPF Routers elect a single node to represent the segment to the network. This node is called 
 the designated router. if forms an OSPF adjacency with all routers on the segment and floods a network LSA into the appropriate 
